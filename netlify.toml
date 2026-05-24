@@ -1,0 +1,21 @@
+# Netlify configuration
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Environment variables (set in Netlify dashboard, not here)
+# GEMINI_API_KEY = your-api-key
+# REPORT_EMAIL = info@davidefiore.com
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.png https://*.jpg https://*.jpeg https://*.svg https://*.webp; video-src 'self'; connect-src 'self' https://generativelanguage.googleapis.com https://api.cal.com https://www.google.com https://www.gstatic.com; frame-src https://www.google.com https://www.gstatic.com; frame-ancestors 'none';"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), clipboard-write=(self)"

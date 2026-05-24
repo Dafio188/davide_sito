@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Training & Formazione | Davide Fiore</title>
+    <meta name="description"
+        content="Workshop e corsi di formazione sull'Intelligenza Artificiale Generativa per aziende. Prompt Engineering, Strategia e integrazione nei workflow.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=25">
+    <link rel="canonical" href="https://www.davidefiore.com/ai-training.html">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Google Consent Mode v2 -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_ads_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+    </script>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXWG2WN80N" id="ga-script" type="text/plain"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JXWG2WN80N');
+    </script>
+
+    <style>
+        .page-hero {
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, #fff, #a3a3a3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-sec);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+
+        .feature-card h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            position: fixed;
+            top: 20px;
+        }
+
+        @media(max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('consent', 'revoke'); // GDPR Compliant Default
+    fbq('init', '2479194409132857');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2479194409132857&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-3"></div>
+        <div class="blob blob-1"></div>
+    </div>
+    <canvas id="neural-canvas"
+        style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; opacity:0.4;"></canvas>
+
+    <nav class="glass">
+        <div class="logo">Davide Fiore</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="news.php">News</a>
+            <a href="index.html#contact">Contatti</a>
+        </div>
+    </nav>
+
+    <section class="container page-hero">
+        <span class="tag"
+            style="background: rgba(239, 68, 68, 0.1); color: #ef4444; border-color: rgba(239, 68, 68, 0.3);">TRAINING</span>
+        <h1 class="page-title">AI Empowerment</h1>
+        <p class="section-subtitle">Trasforma la curiosità in competenza. Percorsi formativi per integrare l'AI nel DNA
+            della tua azienda.</p>
+    </section>
+
+    <section class="container">
+        <div class="page-content">
+            <p>
+                L'AI non sostituirà le persone, ma le persone che usano l'AI sostituiranno quelle che non la usano. La
+                mia missione formativa è colmare il digital divide all'interno dei team, passando dalla teoria ("cos'è
+                ChatGPT") alla pratica ("come lo uso per dimezzare i tempi di questo report").
+            </p>
+
+            <div class="feature-grid">
+                <div class="feature-card glass">
+                    <h3>Prompt Engineering</h3>
+                    <p>Impara a "parlare" con le macchine. Tecniche avanzate (Chain-of-Thought, Few-Shot) per ottenere
+                        risultati precisi e utili dai modelli linguistici.</p>
+                </div>
+                <div class="feature-card glass">
+                    <h3>AI per il Marketing</h3>
+                    <p>Creazione di contenuti, immagini, analisi dei competitor e strategia SEO assistita dall'AI.
+                        Strumenti: Midjourney, Claude, GPT-4.</p>
+                </div>
+                <div class="feature-card glass">
+                    <h3>Automazione Workflow</h3>
+                    <p>Come collegare l'AI a Excel, Email e Calendar per automatizzare le task ripetitive e noiose,
+                        liberando tempo per la creatività.</p>
+                </div>
+                <div class="feature-card glass">
+                    <h3>Etica & Rischi</h3>
+                    <p>Comprendere i limiti, i bias e i rischi di privacy (GDPR) legati all'uso dell'Intelligenza
+                        Artificiale in contesto aziendale.</p>
+                </div>
+            </div>
+
+            <h2 style="color:white; margin-bottom: 20px; font-size: 2rem;">Formato dei Corsi</h2>
+            <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 50px;">
+                <div class="glass" style="padding: 20px; display: flex; align-items: start; gap: 15px;">
+                    <div style="font-size: 1.5rem;">🏢</div>
+                    <div>
+                        <h4 style="color: white; margin-bottom: 5px;">Workshop in Azienda (1-2 Giorni)</h4>
+                        <p style="font-size: 0.95rem;">Full immersion intensiva con esercizi pratici sui casi reali del
+                            vostro business.</p>
+                    </div>
+                </div>
+                <div class="glass" style="padding: 20px; display: flex; align-items: start; gap: 15px;">
+                    <div style="font-size: 1.5rem;">💻</div>
+                    <div>
+                        <h4 style="color: white; margin-bottom: 5px;">Webinar & Remote (Moduli orari)</h4>
+                        <p style="font-size: 0.95rem;">Sessioni verticali da 2-4 ore su argomenti specifici, flessibili
+                            e remote.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <h3 style="color: white; margin-bottom: 20px;">Vuoi formare il tuo team?</h3>
+                <a href="index.html#contact" class="btn">Richiedi Catalogo Corsi</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="text-align: center; padding: 50px 0; color: var(--text-sec); font-size: 0.9rem;">
+            &copy; 2026 Davide Fiore - CyberSecurity & AI Development
+        </div>
+    </footer>
+    <script src="js/main.js?v=25"></script>
+    <!-- PREMIUM FX -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="js/premium-effects.js?v=25"></script>
+</body>
+
+</html>

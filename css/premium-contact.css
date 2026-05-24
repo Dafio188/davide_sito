@@ -1,0 +1,195 @@
+/* PREMIUM CONTACT CARD - V4 (INTENSIFIED AURORA) */
+
+/* 1. STATE MANAGEMENT */
+.contact-form-container {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(0);
+    /* Align Left for better balance */
+    text-align: left;
+    padding: 0 10px;
+    position: relative;
+    z-index: 2;
+    /* Text above aurora */
+}
+
+.success-message-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+/* Active State */
+.contact-card-form.success-state .contact-form-container {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.contact-card-form.success-state .success-message-container {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+    visibility: visible;
+}
+
+/* 2. VISUAL STYLES & ATMOSPHERE */
+
+.contact-card-form {
+    position: relative;
+    overflow: hidden;
+    background: #0a0a0a !important;
+    padding: 60px 50px !important;
+}
+
+/* Noise Texture (Static) */
+.contact-card-form::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.07;
+    z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+/* AMBIENT BREATH (Dynamic Aurora) - INTENSIFIED */
+.contact-card-form::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    /* Intensified Gradient */
+    background: radial-gradient(circle at center, rgba(139, 92, 246, 0.18), transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+    animation: ambient-breath 8s infinite alternate ease-in-out;
+}
+
+@keyframes ambient-breath {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translate(-30px, -15px) scale(1.15);
+        opacity: 0.9;
+    }
+}
+
+/* Status Indicator */
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    font-size: 0.75rem;
+    color: #10b981;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #10b981;
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+/* Success Icon */
+.success-icon {
+    width: 60px;
+    height: 60px;
+    background: #8b5cf6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+}
+
+.success-icon svg {
+    width: 32px;
+    height: 32px;
+    color: white;
+}
+
+/* Input Styles */
+.form-input {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: #8b5cf6 !important;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15) !important;
+    transform: translateY(-2px);
+}
+
+/* Button */
+#form-submit-btn {
+    margin-top: 10px;
+    border-radius: 12px;
+    height: 50px;
+    font-weight: 600;
+}
+
+/* Privacy Text */
+.form-privacy-container {
+    text-align: left;
+    margin-bottom: 25px !important;
+    padding-left: 5px;
+}

@@ -1,0 +1,5 @@
+Questa pagina serve per testare il DEPLOY.
+Generata il: 24/12/2025 ore: ORA_LOCALE
+Se leggi questo, il caricamento dei file su Aruba funziona!
+
+Versione deploy: V3 (Data Globe 3D)

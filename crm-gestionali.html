@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM & Gestionali Custom | Davide Fiore</title>
+    <meta name="description"
+        content="Sviluppo CRM e Software Gestionali su misura. Dashboard di Business Intelligence e automazione processi aziendali.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=25">
+    <link rel="canonical" href="https://www.davidefiore.com/crm-gestionali.html">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Google Consent Mode v2 -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_ads_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+    </script>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXWG2WN80N" id="ga-script" type="text/plain"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JXWG2WN80N');
+    </script>
+
+    <style>
+        .page-hero {
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, #fff, #a3a3a3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-sec);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+
+        .feature-card h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            position: fixed;
+            top: 20px;
+        }
+
+        /* Hero Video Section */
+        .hero-video {
+            position: relative;
+            width: 100%;
+            height: auto;
+            /* Lascia che il video definisca l'altezza */
+            margin: 40px 0 80px;
+            border-radius: 24px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            /* Ombra estetica */
+        }
+
+        .hero-video__media {
+            position: relative;
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 24px;
+            z-index: 1;
+            /* Rimosso object-fit:cover e opacity per piena visibilità */
+        }
+
+        .hero-video__overlay {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            /* Rimosso background e blur per pulizia visiva */
+        }
+
+        .hero-video__title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #fff;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.1);
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .cta-button:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.5);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media(max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-video {
+                /* height rimosso su mobile per adattarsi al video */
+                margin: 20px 0 40px;
+                border-radius: 16px;
+            }
+
+            .hero-video__title {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+
+            .cta-button {
+                padding: 14px 32px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('consent', 'revoke'); // GDPR Compliant Default
+    fbq('init', '2479194409132857');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2479194409132857&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+    <canvas id="neural-canvas"
+        style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; opacity:0.4;"></canvas>
+
+    <nav class="glass">
+        <div class="logo">Davide Fiore</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="news.php">News</a>
+            <a href="index.html#contact">Contatti</a>
+        </div>
+    </nav>
+
+    <section class="container page-hero">
+        <span class="tag"
+            style="background: rgba(16, 185, 129, 0.1); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">BUSINESS</span>
+        <h1 class="page-title">Business Intelligence</h1>
+        <p class="section-subtitle">Il controllo totale del tuo business in un'unica dashboard. Abbandona i fogli Excel
+            e passa a un sistema che scala.</p>
+    </section>
+
+    <!-- Intro Section for Video -->
+    <div class="container" style="text-align: center; margin-bottom: 40px; margin-top: 40px;">
+        <h2 class="hero-video__title">Business Intelligence per il Food Wholesale</h2>
+        <a href="index.html#contact" class="cta-button">Scopri di più</a>
+    </div>
+
+    <!-- Hero Video Section (Video Only) -->
+    <section class="hero-video">
+        <video autoplay muted loop playsinline class="hero-video__media">
+            <source src="/videos/food_bi_spot.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <section class="container">
+        <div class="page-content">
+            <p>
+                Molte aziende gestiscono ancora processi critici su fogli Excel sparsi, chat di WhatsApp e carta. Questo
+                crea silos di dati, errori manuali e l'impossibilità di avere una visione chiara dell'andamento
+                aziendale. Sviluppo <strong>Gestionali Custom</strong> che centralizzano tutto in un unico cervello
+                digitale.
+            </p>
+
+            <div class="feature-grid">
+                <div class="feature-card glass">
+                    <h3>Dashboard in Tempo Reale</h3>
+                    <p>KPI, fatturato, stato commesse e performance del team visibili a colpo d'occhio. Grafici
+                        interattivi e report automatici ogni lunedì mattina.</p>
+                </div>
+                <div class="feature-card glass">
+                    <h3>CRM Su Misura</h3>
+                    <p>Non adattare il tuo processo a Salesforce. Costruiamo un CRM che rispecchia esattamente il tuo
+                        flusso di vendita, dalla lead generation al post-vendita.</p>
+                </div>
+                <div class="feature-card glass">
+                    <h3>Automazione Processi</h3>
+                    <p>Generazione automatica di preventivi, invio fatture, notifiche di scadenze. Riduci del 70% il
+                        tempo speso in burocrazia interna.</p>
+                </div>
+                <div class="feature-card glass">
+                    <h3>Accesso Ovunque</h3>
+                    <p>Gestionali cloud-based sicuri, accessibili da iPad in cantiere, da PC in ufficio o da smartphone
+                        mentre sei in viaggio.</p>
+                </div>
+            </div>
+
+            <h2 style="color:white; margin-bottom: 20px; font-size: 2rem;">Vantaggi di un Software Custom</h2>
+            <p>
+                A differenza dei software "a pacchetto" (SaaS generici), un software custom è un asset di proprietà
+                dell'azienda. Non paghi licenze mensili infinite per utenti aggiuntivi e il software cresce e cambia
+                esattamente come la tua azienda.
+            </p>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <h3 style="color: white; margin-bottom: 20px;">Mettiamo ordine nel caos?</h3>
+                <a href="index.html#contact" class="btn">Analisi Processi Aziendali</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="text-align: center; padding: 50px 0; color: var(--text-sec); font-size: 0.9rem;">
+            &copy; 2026 Davide Fiore - CyberSecurity & AI Development
+        </div>
+    </footer>
+    <script src="js/main.js?v=25"></script>
+    <!-- PREMIUM FX -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="js/premium-effects.js?v=25"></script>
+</body>
+
+</html>

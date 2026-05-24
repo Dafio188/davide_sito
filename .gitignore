@@ -1,0 +1,7 @@
+api/config.php
+debug_email_log.txt
+.env
+*.log
+*.zip
+scratch/
+Registrazione di miosito eseguita_recaptcha..txt

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davide Fiore | Senior Software Architect & Expert AI Developer</title>
+    <meta name="description"
+        content="Portfolio di Davide Fiore: Architetto Software, Esperto AI & CyberSecurity Specialist. Creazione di ecosistemi digitali premium, RAG AI, CRM e UX Apple-inspired.">
+    <meta name="keywords" content="Davide Fiore, Software Architect, AI Developer, CyberSecurity, Apple Design, Full Stack Developer, RAG AI, Sviluppo Web Puglia, Consulenza Tech">
+    <link rel="canonical" href="https://www.davidefiore.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.davidefiore.com/">
+    <meta property="og:title" content="Davide Fiore | Senior Software Architect & Expert AI Developer">
+    <meta property="og:description" content="Ecosistemi digitali di nuova generazione: AI avanzata, Sicurezza e Design Apple-style. Scopri il Lab di Davide Fiore.">
+    <meta property="og:image" content="https://www.davidefiore.com/assets/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.davidefiore.com/">
+    <meta property="twitter:title" content="Davide Fiore | Senior Software Architect & Expert AI Developer">
+    <meta property="twitter:description" content="AI, Cybersecurity e Design Premium. L'eccellenza dello sviluppo software nel portfolio di Davide Fiore.">
+    <meta property="twitter:image" content="https://www.davidefiore.com/assets/og-image.png">
+
+    <!-- Google Consent Mode v2 -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        
+        // Impostazione di default: tutto negato
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_ads_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+    </script>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXWG2WN80N" id="ga-script" type="text/plain"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JXWG2WN80N');
+    </script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Davide Fiore",
+      "alternateName": "Dafio",
+      "url": "https://www.davidefiore.com",
+      "image": "https://www.davidefiore.com/assets/avatar_new.png",
+      "description": "Senior Software Architect e AI Developer specializzato in CyberSecurity e UI Engineering di alto livello con estetica Apple.",
+      "jobTitle": "Senior Software Architect & AI specialist",
+      "knowsAbout": ["Artificial Intelligence", "Cybersecurity", "Software Architecture", "UI/UX Design", "Full-stack Development"],
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61589848732234&locale=it_IT",
+        "https://www.linkedin.com/in/davide-fiore-714195318",
+        "https://www.instagram.com/davide_fiore71/",
+        "https://github.com/Dafio188"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Davide Fiore Freelance"
+      }
+    }
+    </script>
+
+    <!-- Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css?v=25">
+    <link rel="stylesheet" href="css/clean-contact.css?v=25">
+    <link rel="stylesheet" href="css/globe-3d.css?v=25">
+    <link rel="stylesheet" href="css/chatbot.css?v=25">
+    <link rel="stylesheet" href="css/magic-beam.css?v=25">
+    <link rel="stylesheet" href="css/border-beam.css?v=25">
+    <link rel="stylesheet" href="css/card-links.css?v=25">
+    <link rel="stylesheet" href="css/fruttagest.css?v=25">
+
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+        integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ld9XrIsAAAAAJffIUDG0gRTwEMARrwVJxsjANqa"></script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('consent', 'revoke'); // GDPR Compliant Default
+    fbq('init', '2479194409132857');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2479194409132857&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+
+    <!-- Sfondo Animato -->
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Avatar Welcome Overlay -->
+    <div id="welcome-overlay" class="welcome-overlay">
+        <div class="overlay-content glass">
+            <div class="avatar-container">
+                <video id="avatar-video" src="avatar_Davide.mp4" class="speaking-avatar" playsinline preload="none"
+                    poster="assets/avatar_new.png"></video>
+
+            </div>
+            <h2>Benvenuto su DavideFiore.com</h2>
+            <p>Ciao! Sono l'assistente virtuale di Davide. Clicca qui sotto per iniziare.</p>
+            <button id="enter-site-btn" class="btn btn-full">
+                <span>Inizia</span>
+            </button>
+            <!-- SKIP BUTTON CLEAN STYLE -->
+            <button id="skip-intro-btn"
+                style="display: block; margin: 25px auto 0; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); padding: 10px 24px; border-radius: 50px; color: #fff; cursor: pointer; text-decoration: none; font-size: 0.9rem; font-family: inherit; transition: all 0.3s;">
+                SALTA INTRODUZIONE
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigazione -->
+    <nav class="glass">
+        <div class="logo-container">
+            <img src="assets/avatar_new.png" alt="Davide Fiore" class="nav-avatar">
+            <div class="logo">Davide Fiore</div>
+        </div>
+        <div class="nav-links">
+            <a href="#about">Chi Sono</a>
+            <a href="#services">Servizi</a>
+            <a href="news.php">News</a>
+            <a href="#contact">Contatti</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container hero" id="about">
+        <!-- Floating Shards for Animation -->
+        <div class="glass-shard shard-left"></div>
+        <div class="glass-shard shard-right"></div>
+        <div class="glass-shard shard-center"></div>
+
+        <!-- NEW HERO CARD WRAPPER -->
+        <div class="hero-card">
+            <!-- CANVAS FOR GLOWING TUBES -->
+            <canvas id="tubes-canvas"></canvas>
+
+            <!-- CONTENT LAYER -->
+            <div class="hero-content">
+                <span class="tag">Security • Development • AI</span>
+                <h1 class="hero-title">
+                    <span class="hero-text-primary hyper-text" data-text="Sviluppo Solido">Sviluppo Solido</span>
+                    <br>
+                    <span class="hero-gradient hero-text-secondary hyper-text modal-trigger"
+                        data-text="Intelligenza Sicura">Intelligenza Sicura</span>
+                </h1>
+                <p>Unisco l'ingegneria del software e la CyberSecurity per creare soluzioni AI e Web App che trasformano
+                    il
+                    business, senza rischi.</p>
+
+                <div class="cta-group">
+                    <a href="javascript:void(0)" class="btn trigger-chat-open"
+                        onclick="trackEvent('click_cta_call', {location: 'hero'})">Prenota una Call Conoscitiva</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Data Globe 3D Section -->
+    <section class="container">
+        <div class="globe-section">
+            <div class="center-pulse"></div>
+            <div class="center-pulse" style="animation-delay: 1s"></div>
+            <div class="center-pulse" style="animation-delay: 2s"></div>
+
+            <div class="scan-line-globe"></div>
+
+            <div id="globe-canvas"></div>
+
+            <div class="globe-overlay">
+                <div class="globe-title">
+                    <div class="title-badge">
+                        ⚡ GLOBAL NETWORK
+                    </div>
+                    <h2 class="globe-main-title">
+                        <span class="highlight">Connected</span> Intelligence
+                    </h2>
+                    <p class="globe-sub-title">Real-time data visualization • AI-powered security</p>
+                </div>
+
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-nodes">0</div>
+                        <div class="stat-label">Active Nodes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-connections">0</div>
+                        <div class="stat-label">Connections</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-data">0TB</div>
+                        <div class="stat-label">Data Flow</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects / Bento Grid Section -->
+    <section class="container" id="services">
+        <h2 class="section-title">Ecosistema Digitale</h2>
+        <p class="section-subtitle">Dalle basi del codice all'addestramento AI personalizzato</p>
+
+        <div class="bento-grid">
+
+            <!-- COLUMN 1 (Left) -->
+            <!-- AI & RAG (Tall, Top Left) -->
+            <a href="ai-rag.html" class="card glass card-dark bento-pos-1"
+                style="text-decoration: none; color: inherit;">
+                <div class="card-header">
+                    <span class="card-tag tag-core">AI CORE</span>
+                </div>
+                <h3>Intelligenza Artificiale & RAG</h3>
+
+                <p class="card-payoff">I tuoi dati, la potenza dei Large Language Models.</p>
+                <p class="card-body">Trasforma la documentazione aziendale in una base di conoscenza interattiva.
+                    Sviluppo chatbot evoluti che non allucinano, garantendo precisione chirurgica e privacy totale dei
+                    dati.</p>
+
+                <div class="card-footer">
+                    <div class="card-focus">
+                        Focus: Knowledge Retrieval • Automazione • Sicurezza
+                    </div>
+                    <span class="card-cta">Scopri di più →</span>
+                </div>
+            </a>
+
+            <!-- Performance (Short, Bottom Left) -->
+            <!-- Performance (Short, Bottom Left) -->
+            <a href="performance-seo.html" class="card glass bento-pos-2"
+                style="text-decoration: none; color: inherit;">
+                <div class="card-header">
+                    <span class="card-tag tag-opt">OPTIMIZATION</span>
+                </div>
+                <h3>Speed & Performance</h3>
+
+                <p class="card-payoff">Esperienze fulminee che scalano i motori di ricerca.</p>
+                <p class="card-body">La velocità è un requisito, non un optional. Ottimizzo i Core Web Vitals per
+                    massimizzare il conversion rate.</p>
+
+                <div class="card-footer">
+                    <div class="card-focus">
+                        Focus: <span id="perf-counter">Lighthouse 100/100</span> • Edge Computing • SEO
+                    </div>
+                    <span class="card-cta">Scopri di più →</span>
+                </div>
+            </a>
+
+            <!-- COLUMN 2 (Center - HERO) -->
+            <!-- Sviluppo App & Web + Beam (Tallest Center) -->
+            <a href="web-development.html" class="card glass bento-pos-3 magic-card"
+                style="display:flex; flex-direction:column; justify-content:flex-start; text-decoration: none; color: inherit;">
+
+                <div class="card-header" style="position:relative; z-index:2;">
+                    <span class="card-tag tag-dev">DEVELOPMENT</span>
+                </div>
+
+                <div class="magic-content" style="width:100%; z-index:2;">
+                    <h3>Architetture Scalabili</h3>
+                    <p class="card-payoff">Dal prototipo alla produzione, senza compromessi.</p>
+                    <p class="card-body">Progetto ecosistemi digitali robusti con framework moderni. Codice ottimizzato
+                        per scalare con il tuo business.</p>
+
+                    <div class="card-focus">
+                        Focus: Next.js • Cloud Native • Clean Code
+                    </div>
+                    <span class="card-cta">Scopri di più →</span>
+
+                    <!-- ANIMATED BEAM VISUALIZATION (Vertical optimized) -->
+                    <!-- ISOMETRIC TECH STACK -->
+                    <div class="tech-stack-container" style="margin-top: 20px;">
+                        <div class="iso-stack">
+                            <div class="stack-layer layer-db">
+                                <div class="layer-content">Data Core</div>
+                            </div>
+                            <div class="stack-layer layer-api">
+                                <div class="layer-content">API Logic</div>
+                            </div>
+                            <div class="stack-layer layer-ui">
+                                <div class="layer-content">Interface</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- COLUMN 3 (Right) -->
+            <!-- Training (Short, Top Right) -->
+            <!-- Training (Short, Top Right) -->
+            <a href="ai-training.html" class="card glass bento-pos-4" style="text-decoration: none; color: inherit;">
+                <div class="card-header">
+                    <span class="card-tag tag-train">TRAINING</span>
+                </div>
+                <h3>AI Empowerment</h3>
+                <p class="card-payoff">Colmiamo il gap tecnologico del tuo team.</p>
+                <!-- Body text shortened slightly to fit if needed, but trying full text first -->
+                <p class="card-body">Workshop pratici per integrare l'AI generativa nel workflow quotidiano. </p>
+
+                <div class="card-footer">
+                    <div class="card-focus">
+                        Prompt Engineering • Workflow • Strategy
+                    </div>
+                    <span class="card-cta">Scopri di più →</span>
+                </div>
+            </a>
+
+            <!-- CRM (Tall, Bottom Right) -->
+            <!-- CRM (Tall, Bottom Right) -->
+            <a href="crm-gestionali.html" class="card glass bento-pos-5" style="text-decoration: none; color: inherit;">
+                <div class="card-header">
+                    <span class="card-tag tag-biz">BUSINESS</span>
+                </div>
+                <h3>Business Intelligence</h3>
+                <p class="card-payoff">Il controllo totale del tuo business in un'unica dashboard.</p>
+                <p class="card-body">Software gestionali e CRM custom che eliminano il caos operativo. Insight
+                    azionabili in tempo reale.</p>
+
+                <div class="card-footer">
+                    <div class="card-focus">
+                        Data Viz • Automazione • Dashboards
+                    </div>
+                    <span class="card-cta">Scopri di più →</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- FruttaGest Featured Product Section -->
+    <section class="container" id="featured-fruttagest" style="position: relative; z-index: 10;">
+        <div class="featured-card card glass magic-card">
+            <!-- BORDER BEAM EFFECT -->
+            <div class="border-beam-container">
+                <div class="border-beam-light featured-beam"></div>
+            </div>
+
+            <div class="featured-grid">
+                <!-- Text Sidebar -->
+                <div class="featured-text">
+                    <span class="tag card-tag tag-biz" style="margin-bottom: 20px; display: inline-block;">CASE STUDY:
+                        SaaS B2B</span>
+
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                        <img src="fruttagest_homepage05.png" alt="FruttaGest Icon"
+                            style="width: 48px; height: 48px; border-radius: 12px; object-fit: cover; border: 1px solid rgba(255,255,255,0.2);">
+                        <h2 class="featured-title">FruttaGest</h2>
+                    </div>
+
+                    <h3 class="featured-subtitle">La Suite Definitiva per l'Ortofrutta</h3>
+
+                    <p class="featured-description">
+                        Una piattaforma Cloud Multi-Tenant sviluppata su misura per scalare. Collega l'intera filiera in
+                        tempo reale: dal grossista ortofrutticolo sino ai fornitori operanti nei settori HORECA e GDO.
+                    </p>
+
+                    <ul class="featured-features">
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            Gestione Lotti & Vendite
+                        </li>
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                                </path>
+                            </svg>
+                            Dashboard Tempo Reale
+                        </li>
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                </path>
+                            </svg>
+                            Permessi Multi-Livello
+                        </li>
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                            Next.js & Cloud Arch.
+                        </li>
+                    </ul>
+
+                    <div class="cta-group" style="margin-top: 30px;">
+                        <a href="https://fruttagest.com" target="_blank" class="btn btn-full"
+                            style="background: white; color: black; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 100px; padding: 14px 24px; font-weight: 600;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                </path>
+                            </svg>
+                            Esplora FruttaGest
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image Gallery -->
+                <div class="featured-gallery">
+                    <div class="featured-image-main">
+                        <img src="fruttagest_homepage03.png" alt="FruttaGest Dashboard" id="fg-main-img">
+                        <div class="img-overlay"></div>
+                    </div>
+
+                    <!-- Thumbnail Navigation -->
+                    <div class="featured-thumbnails">
+                        <div class="thumb active" data-src="fruttagest_homepage03.png">
+                            <img src="fruttagest_homepage03.png" alt="Vista 1" loading="lazy">
+                        </div>
+                        <div class="thumb" data-src="fruttagest_homepage01.png">
+                            <img src="fruttagest_homepage01.png" alt="Vista 2" loading="lazy">
+                        </div>
+                        <div class="thumb" data-src="fruttagest_homepage02.png">
+                            <img src="fruttagest_homepage02.png" alt="Vista 3" loading="lazy">
+                        </div>
+                        <div class="thumb" data-src="fruttagest_homepage04.png">
+                            <img src="fruttagest_homepage04.png" alt="Vista 4" loading="lazy">
+                        </div>
+                        <div class="thumb" data-src="fruttagest_homepage05.png">
+                            <img src="fruttagest_homepage05.png" alt="Vista 5" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab / Side Projects Section -->
+    <section class="container" id="lab">
+        <h2 class="section-title">Personal Lab</h2>
+        <p class="section-subtitle">Oltre il codice aziendale: progetti indipendenti, astronomia e game development</p>
+
+        <div class="lab-grid">
+            <!-- AstroGuida Card -->
+            <div class="lab-card">
+                <div class="lab-image-container">
+                    <img src="assets/astroguida_preview.webp?v=25" alt="AstroGuida App" class="lab-image">
+                </div>
+                <div class="lab-content">
+                    <div class="lab-header">
+                        <h3>AstroGuida</h3>
+                        <span class="tag-small">Android App</span>
+                    </div>
+                    <p>L'app di riferimento per l'astronomia in Puglia. Mappe stellari, eventi e community in tasca.</p>
+                    <div class="lab-actions">
+                        <a href="https://play.google.com/store/apps/details?id=com.astroguida.app_gemini_astroguida"
+                            target="_blank" class="btn-ios primary">
+                            <span>📲 Play Store</span>
+                        </a>
+                        <a href="https://www.astroguida.com" target="_blank" class="btn-ios">
+                            <span>🌍 Sito Web</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SoftMatch Card -->
+            <div class="lab-card">
+                <div class="lab-image-container">
+                    <img src="assets/softmatch_preview.png?v=25" alt="SoftMatch" class="lab-image">
+                </div>
+                <div class="lab-content">
+                    <div class="lab-header">
+                        <h3>SoftMatch</h3>
+                        <span class="tag-small">SaaS Platform</span>
+                    </div>
+                    <p>Il punto d'incontro tra aziende e talenti del software. Un ecosistema tech-forward per lo sviluppo su misura in Italia.</p>
+                    <div class="lab-actions">
+                        <a href="https://softmatch.it" target="_blank" class="btn-ios primary">
+                            <span>🌍 Esplora Sito</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CercArtigiano Card -->
+            <div class="lab-card">
+                <div class="lab-image-container">
+                    <img src="assets/cercartigiano_preview.png?v=25" alt="CercArtigiano" class="lab-image">
+                </div>
+                <div class="lab-content">
+                    <div class="lab-header">
+                        <h3>CercArtigiano</h3>
+                        <span class="tag-small">Marketplace</span>
+                    </div>
+                    <p>La piattaforma premium che connette l'eccellenza dell'artigianato locale con clienti visionari. Design minimale e UX fluida.</p>
+                    <div class="lab-actions">
+                        <a href="https://cercartigiano.com" target="_blank" class="btn-ios primary">
+                            <span>🌍 Esplora Sito</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ruota della Conoscenza Card -->
+            <div class="lab-card">
+                <div class="lab-image-container">
+                    <img src="assets/ruota_preview.jpg?v=25" alt="Ruota della Conoscenza" class="lab-image">
+                </div>
+                <div class="lab-content">
+                    <div class="lab-header">
+                        <h3>Ruota della Conoscenza</h3>
+                        <span class="tag-small">Trivia Game</span>
+                    </div>
+                    <p>Un gioco educativo con migliaia di domande estratte direttamente dalla Bibbia. Sfida la tua
+                        conoscenza.</p>
+                    <div class="lab-actions">
+                        <span class="btn-ios disabled">
+                            <span>🚀 Coming Soon</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="contact" style="text-align: center; padding-bottom: 80px;">
+        <h2 class="section-title">Parliamo del tuo progetto</h2>
+        <p class="section-subtitle">Hai un'idea o una sfida tecnica? Scrivimi per parlarne.</p>
+
+        <div class="glass contact-card-form magic-card"
+            style="max-width: 550px; margin: 0 auto; padding: 80px; border-radius: 24px;">
+
+            <!-- BORDER BEAM EFFECT -->
+            <div class="border-beam-container">
+                <div class="border-beam-light"></div>
+            </div>
+
+            <!-- SUCCESS MESSAGE (Hidden by default) -->
+            <div class="success-message-container">
+                <div class="success-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h3 style="color: white; margin-bottom: 10px;">Messaggio Inviato!</h3>
+                <p style="color: var(--text-sec); font-size: 0.95rem;">Grazie per avermi contattato. <br>Ti risponderò
+                    entro 24 ore.</p>
+            </div>
+
+            <!-- FORM CONTAINER -->
+            <div class="contact-form-container">
+                <!-- STATUS INDICATOR -->
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    Disponibile per nuovi progetti
+                </div>
+
+                <form id="contact-form" onsubmit="submitContactForm(event)">
+                    <!-- Clean Form -->
+
+                    <input type="text" id="form-name" class="form-input" placeholder="Il tuo nome" required>
+                    <input type="email" id="form-email" class="form-input" placeholder="La tua email" required>
+
+                    <!-- Honeypot Field (Anti-Spam) -->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                        <input type="text" name="b_website" tabindex="-1" value="" autocomplete="off">
+                    </div>
+
+                    <textarea id="form-message" class="form-input" placeholder="Descrivi brevemente il tuo progetto..."
+                        rows="4" required></textarea>
+
+                    <div
+                        style="text-align: left; margin-bottom: 20px; font-size: 0.8rem; color: var(--text-sec); display: flex; align-items: start; gap: 10px;">
+                        <input type="checkbox" id="form-privacy" required style="margin-top: 3px;">
+                        <label for="form-privacy">Acconsento al trattamento dei dati personali. <a
+                                href="privacy_policy.html" target="_blank" style="color: var(--accent);">Leggi Privacy
+                                Policy</a>.</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-full" id="form-submit-btn">
+                        <span>Invia Messaggio</span>
+                    </button>
+
+                    <!-- Hidden legacy status, handled by visual transition now -->
+                    <p id="form-status" class="small-note" style="display:none;"></p>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="glass footer-pill"
+                style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                <p>&copy; 2026 Davide Fiore - CyberSecurity & Software Dev</p>
+                
+                <!-- Social Connect -->
+                <div class="social-links-footer" style="display: flex; gap: 20px; margin: 5px 0;">
+                    <a href="https://www.facebook.com/profile.php?id=61589848732234&locale=it_IT" target="_blank" class="social-icon-link" aria-label="Facebook">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/davide-fiore-714195318" target="_blank" class="social-icon-link" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <a href="https://www.instagram.com/davide_fiore71/" target="_blank" class="social-icon-link" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                </div>
+
+                <div class="footer-links" style="font-size: 0.85rem;">
+                    <a href="privacy_policy.html"
+                        style="color: var(--text-sec); margin: 0 10px; text-decoration: none;">Privacy Policy</a>
+                    <a href="cookie_policy.html"
+                        style="color: var(--text-sec); margin: 0 10px; text-decoration: none;">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner hidden">
+        <div style="flex: 1; margin-right: 20px;">
+            <strong style="display: block; margin-bottom: 5px; font-size: 1rem;">Rispetto della tua Privacy</strong>
+            <p>Utilizziamo cookie tecnici per garantire il funzionamento del sito e, previo tuo consenso, cookie
+                analitici per migliorare la tua esperienza. Puoi consultare la nostra <a
+                    href="cookie_policy.html">Cookie Policy</a> e <a href="privacy_policy.html">Privacy Policy</a>.</p>
+        </div>
+        <div class="cookie-actions">
+            <button id="cookie-accept" class="btn btn-small">Accetta</button>
+            <button id="cookie-reject" class="btn-text" style="font-size: 0.9rem; white-space: nowrap;">Solo
+                tecnici</button>
+        </div>
+    </div>
+
+    <script src="js/main.js?v=25"></script>
+    <script src="js/globe-3d.js?v=25"></script>
+    <script src="js/glowing-tubes.js?v=25"></script>
+    <script src="js/chatbot.js?v=25"></script>
+    <script src="js/hyper_text.js?v=25"></script>
+    <!-- PREMIUM FX -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"
+        integrity="sha256-DvhpBmxLvmFTw0xbpzCMgmtPovEnlswCvvbpqn7ibPg=" crossorigin="anonymous"></script>
+    <script src="js/premium-effects.js?v=25"></script>
+</body>
+
+</html>

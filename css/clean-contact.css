@@ -1,0 +1,204 @@
+/* PREMIUM CONTACT CARD - V6 (FIX BORDER BEAM) */
+
+/* 1. LAYER FIX: Ensure Background allows Border Beam to shine */
+.contact-card-form {
+    position: relative;
+    overflow: hidden;
+    /* Keep rounded corners */
+    /* Background is applied here */
+    background: radial-gradient(circle at top left, #0f0f11, #000000) !important;
+    padding: 60px 40px !important;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+    z-index: 1;
+    /* Establish stacking context */
+}
+
+/* FORCED BORDER BEAM VISIBILITY */
+.border-beam-container {
+    pointer-events: none;
+    z-index: 10 !important;
+    /* Bring border to front (above bg) */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    /* Follow card radius */
+    overflow: hidden;
+}
+
+/* Fix for Content layering */
+.contact-form-container {
+    position: relative;
+    z-index: 20;
+    /* Content MUST be above everything (bg + border) */
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(0);
+    text-align: left;
+    padding: 0 10px;
+}
+
+/* Success Message Layering */
+.success-message-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    /* Same as form content */
+}
+
+/* Active State Logic */
+.contact-card-form.success-state .contact-form-container {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.contact-card-form.success-state .success-message-container {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+    visibility: visible;
+}
+
+
+/* 2. VISUAL STYLES (CLEAN) */
+
+/* NO NOISE TEXTURE HERE */
+.contact-card-form::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* SUBTLE AMBIENT LIGHT (Clean Gradient) */
+.contact-card-form::after {
+    content: "";
+    position: absolute;
+    bottom: -30%;
+    right: -30%;
+    width: 100%;
+    height: 100%;
+    /* Very subtle purple light leak from bottom right */
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.12), transparent 70%);
+    z-index: 0;
+    /* Behind everything */
+    pointer-events: none;
+    filter: blur(60px);
+}
+
+/* Status Indicator (Centered) */
+.status-indicator {
+    display: flex;
+    /* Changed from inline-flex to flex to support margin auto behavior better with fit-content */
+    width: fit-content;
+    /* Shrink to content */
+    margin: 0 auto 30px auto;
+    /* CENTER IT horizontally */
+    align-items: center;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    padding: 5px 14px;
+    border-radius: 50px;
+    /* More rounded again for badge look */
+    font-size: 0.8rem;
+    color: #10b981;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #10b981;
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+/* Success Icon */
+.success-icon {
+    width: 60px;
+    height: 60px;
+    background: #8b5cf6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+}
+
+.success-icon svg {
+    width: 32px;
+    height: 32px;
+    color: white;
+}
+
+/* Input Styles */
+.form-input {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: #8b5cf6 !important;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15) !important;
+    transform: translateY(-2px);
+}
+
+/* Button */
+#form-submit-btn {
+    margin-top: 10px;
+    border-radius: 12px;
+    height: 50px;
+    font-weight: 600;
+}
+
+/* Privacy Text */
+.form-privacy-container {
+    text-align: left;
+    margin-bottom: 25px !important;
+    padding-left: 5px;
+}

@@ -1,0 +1,55 @@
+/* ========================================
+   🔗 CARD AS ANCHOR OPTIMIZATION
+   ======================================== */
+
+/* Assicura che le card-anchor mantengano il layout flex */
+a.card {
+    display: flex !important;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Il testo dentro le card-anchor non deve essere underlined */
+a.card h3,
+a.card p,
+a.card span {
+    text-decoration: none !important;
+}
+
+/* Mantieni tutti gli effetti hover anche per le card-anchor */
+a.card:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(255, 255, 255, 0.18);
+    background: linear-gradient(180deg, rgba(40, 40, 40, 0.7) 0%, rgba(30, 30, 30, 0.5) 100%);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 35px 70px -15px rgba(0, 0, 0, 0.7),
+        0 0 30px rgba(139, 92, 246, 0.15),
+        0 0 60px rgba(139, 92, 246, 0.08);
+}
+
+a.card:active {
+    transform: translateY(-4px) scale(0.99);
+    transition: all 0.15s var(--ease-smooth);
+}
+
+/* Il card-cta dentro card-anchor diventa span ma mantiene stile */
+a.card .card-cta {
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.3s var(--ease-apple), transform 0.3s var(--ease-apple);
+}
+
+a.card:hover .card-cta {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile: sempre visibile */
+@media (max-width: 1023px) {
+    a.card .card-cta {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

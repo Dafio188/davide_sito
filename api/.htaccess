@@ -1,0 +1,30 @@
+# Disable Directory Listing (Prevent users from seeing file list)
+Options -Indexes
+
+# Deny access to hidden files (git, etc)
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Deny access to config or debug files if they exist
+<FilesMatch "^(config|debug).*\.php$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Allow public access to chat.php
+<Files "chat.php">
+    Order allow,deny
+    Allow from all
+</Files>
+
+<Files "check_limit.php">
+    Order allow,deny
+    Allow from all
+</Files>
+
+<Files "diagnostica.php">
+    Order allow,deny
+    Allow from all
+</Files>

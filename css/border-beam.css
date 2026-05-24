@@ -1,0 +1,107 @@
+/* CSS Border Beam Implementation */
+.border-beam {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+    /* Above bg content, below text */
+    overflow: hidden;
+}
+
+.border-beam-path {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Define the path of the beam (perimeter) */
+    clip-path: inset(0 0 0 0 round 16px);
+    /* Matches card border radius */
+}
+
+/* The actual beam is a pseudo-element moving along the border */
+.border-beam::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Size of the beam length */
+    width: 15rem;
+    /* ~240px length */
+    height: 100%;
+    background: linear-gradient(to right,
+            transparent,
+            var(--accent),
+            var(--accent-secondary),
+            transparent);
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: border-beam-anim 6s linear infinite;
+    /* Masking to only show on the border edges */
+    /* This part is tricky with pure CSS on a rect. 
+       Easier approach: 4 spans or SVG. 
+       Advanced approach: Mask-composite.
+    */
+}
+
+/* 
+ * SIMPLER, ROBUST APPROACH FOR "BORDER BEAM" WITHOUT JS LIBRARIES 
+ * Using a conic gradient spinner behind a masked padding box is common,
+ * but specifically a "travelling beam" is best done with an SVG element 
+ * like in the user's React code example, OR a clever keyframe anim on a pseudo.
+ * 
+ * Let's try the "pseudo-element running along the edge" method using 
+ * offset-path (modern support) or the 4-sided animation.
+ */
+
+/* METHOD 2: Moving Gradient Border Mask (Magic UI Approximation) */
+.border-beam-container {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 10;
+    /* Portato più in alto per visibilità */
+    /* Ensure only the border is visible */
+    padding: 2px;
+    /* Bordo più spesso */
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.border-beam-light {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent 70%,
+            /* Ridotto per beam più largo */
+            rgba(139, 92, 246, 0.8) 85%,
+            /* Più opaco */
+            rgba(217, 70, 239, 0.8) 92%,
+            /* Più opaco */
+            transparent 100%);
+    animation: border-beam-rotate 3s linear infinite;
+    /* Più veloce */
+}
+
+@keyframes border-beam-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Apply to specific cards */
+.magic-card {
+    position: relative;
+    /* Ensure absolute children position correctly */
+}

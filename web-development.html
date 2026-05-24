@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sviluppo App & Web | Davide Fiore</title>
+    <meta name="description"
+        content="Sviluppo Web App moderne con Next.js, React e architetture Cloud Native. Software scalabile e sicuro 'by design'.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=24">
+    <link rel="canonical" href="https://www.davidefiore.com/web-development.html">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Google Consent Mode v2 -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_ads_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+    </script>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXWG2WN80N" id="ga-script" type="text/plain"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JXWG2WN80N');
+    </script>
+
+    <style>
+        .page-hero {
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, #fff, #a3a3a3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-sec);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+
+        .feature-card h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            position: fixed;
+            top: 20px;
+        }
+
+        @media(max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('consent', 'revoke'); // GDPR Compliant Default
+    fbq('init', '2479194409132857');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2479194409132857&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    <canvas id="neural-canvas"
+        style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; opacity:0.4;"></canvas>
+
+    <nav class="glass">
+        <div class="logo">Davide Fiore</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="news.php">News</a>
+            <a href="index.html#contact">Contatti</a>
+        </div>
+    </nav>
+
+    <section class="container page-hero">
+        <span class="tag"
+            style="background: rgba(59, 130, 246, 0.1); color: #3b82f6; border-color: rgba(59, 130, 246, 0.3);">DEVELOPMENT</span>
+        <h1 class="page-title">Sviluppo App & Web</h1>
+        <p class="section-subtitle">Architetture moderne, codice pulito e sicurezza integrata. Dal prototipo alla scala
+            globale.</p>
+    </section>
+
+    <section class="container">
+        <div class="page-content">
+            <p>
+                Non scrivo solo codice, costruisco prodotti. Il mio stack tecnologico è selezionato per garantire
+                longevità al progetto: niente mode passeggere, solo framework solidi e standard industriali che
+                permettono al tuo business di evolvere senza debiti tecnici.
+            </p>
+
+            <div class="feature-grid">
+                <div class="feature-card glass">
+                    <h3>Next.js & React</h3>
+                    <p>Lo standard de facto per il web moderno. Rendering lato server (SSR) per la SEO, interattività
+                        lato client per l'UX. Applicazioni velocissime e reattive.</p>
+                </div>
+                <div class="feature-card glass">
+                    <h3>Cloud Native</h3>
+                    <p>Progettazione Serverless su AWS o Vercel. Il tuo software scala automaticamente da 10 a 10
+                        milioni di utenti senza dover gestire server fisici.</p>
+                </div>
+                <div class="feature-card glass">
+                    <h3>Security First</h3>
+                    <p>In quanto esperto di CyberSecurity, la sicurezza non è un'aggiunta finale. È integrata in ogni
+                        riga di codice: protezione OWASP, cifratura dati e autenticazione robusta.</p>
+                </div>
+                <div class="feature-card glass">
+                    <h3>Clean Code</h3>
+                    <p>Codice documentato, testato e strutturato. Chiunque prenderà in mano il progetto in futuro ti
+                        ringrazierà (e risparmierai migliaia di euro in manutenzione).</p>
+                </div>
+            </div>
+
+            <h2 style="color:white; margin-bottom: 20px; font-size: 2rem;">Cosa posso costruire?</h2>
+            <ul style="list-style: none; padding: 0; margin-bottom: 60px;">
+                <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <span style="color: var(--accent);">✓</span> Piattaforme SaaS (Software as a Service)
+                </li>
+                <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <span style="color: var(--accent);">✓</span> E-commerce headless ad alte prestazioni
+                </li>
+                <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <span style="color: var(--accent);">✓</span> Portali clienti e Aree Riservate
+                </li>
+                <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <span style="color: var(--accent);">✓</span> Web App Progressive (PWA) installabili su smartphone
+                </li>
+            </ul>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <h3 style="color: white; margin-bottom: 20px;">Hai un'idea o un progetto in mente?</h3>
+                <a href="index.html#contact" class="btn">Parliamo del Progetto</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="text-align: center; padding: 50px 0; color: var(--text-sec); font-size: 0.9rem;">
+            &copy; 2026 Davide Fiore - CyberSecurity & AI Development
+        </div>
+    </footer>
+    <script src="js/main.js?v=24"></script>
+    <!-- PREMIUM FX -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="js/premium-effects.js?v=24"></script>
+</body>
+
+</html>

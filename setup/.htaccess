@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# Force HTTPS: DISABILITATO
+# Configurazione Aruba attuale non passa gli header corretti (HTTPS=MISSING).
+# Il certificato SSL deve essere verificato lato Hosting.
+# Nessun redirect attivo per evitare loop.
+
+# Optional: Protect sensitive files
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files ".env">
+    Order Allow,Deny
+    Deny from all
+</Files>

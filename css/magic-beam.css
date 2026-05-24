@@ -1,0 +1,154 @@
+/* PREMIUM TECH STACK VISUALIZATION (Isometric) */
+
+.tech-stack-container {
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    overflow: visible;
+}
+
+.iso-stack {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: rotateX(60deg) rotateZ(-45deg);
+    transition: transform 0.5s ease;
+}
+
+/* Hover Effect: Expansion */
+.magic-card:hover .iso-stack {
+    transform: rotateX(60deg) rotateZ(-45deg) scale(1.05);
+}
+
+.stack-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 1px;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.5);
+    /* Deep shadow for depth */
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    /* Glossy Edge */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05),
+        10px 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* LAYER 1: DATA CORE (Bottom) */
+.layer-db {
+    background: rgba(20, 20, 25, 0.8);
+    transform: translateZ(0px);
+    z-index: 1;
+    border-color: rgba(139, 92, 246, 0.2);
+    /* Purple hint */
+}
+
+.layer-db .layer-content {
+    transform: rotateZ(45deg) rotateX(-60deg) translateY(10px);
+    /* Counter-rotate text for readability */
+    color: #a3a3a3;
+}
+
+/* LAYER 2: LOGIC (Middle) */
+.layer-api {
+    background: rgba(139, 92, 246, 0.15);
+    /* Main Accent */
+    backdrop-filter: blur(8px);
+    transform: translateZ(60px);
+    z-index: 2;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.2), inset 0 0 20px rgba(139, 92, 246, 0.1);
+}
+
+.layer-api .layer-content {
+    transform: rotateZ(45deg) rotateX(-60deg);
+    color: #fff;
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.8);
+}
+
+/* LAYER 3: INTERFACE (Top) */
+.layer-ui {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+    backdrop-filter: blur(12px);
+    transform: translateZ(120px);
+    z-index: 3;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.layer-ui .layer-content {
+    transform: rotateZ(45deg) rotateX(-60deg) translateY(-10px);
+    color: #fff;
+    font-weight: 700;
+}
+
+/* HOVER ANIMATION: Separation */
+.magic-card:hover .layer-db {
+    transform: translateZ(-20px);
+}
+
+.magic-card:hover .layer-api {
+    transform: translateZ(70px);
+    background: rgba(139, 92, 246, 0.25);
+}
+
+.magic-card:hover .layer-ui {
+    transform: translateZ(160px);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Text Content Container (Counter-rotated inside layers) */
+.layer-content {
+    pointer-events: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: all 0.5s ease;
+}
+
+/* Let's try animating the mask or the rect position */
+
+/* ------------------------------------------- */
+/*  Centered Layout for Contact Form Styles    */
+/* ------------------------------------------- */
+
+.contact-card-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.contact-card-form .contact-header {
+    width: 100%;
+    margin-top: 40px;
+    /* Spacing from top border */
+}
+
+.contact-card-form .form-input,
+.contact-card-form textarea,
+.contact-card-form .btn-full {
+    width: 85% !important;
+    max-width: 400px;
+    /* Premium compact look */
+}
+
+/* Privacy Checkbox Container */
+.contact-card-form form>div:not(.contact-header) {
+    width: 85% !important;
+    max-width: 400px;
+    display: flex !important;
+    /* Preserves flex layout */
+    justify-content: flex-start;
+}

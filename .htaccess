@@ -1,0 +1,28 @@
+# Security Headers Implementation
+<IfModule mod_headers.c>
+    # HSTS
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # CSP - Baseline safe
+    # Allows scripts from self, cdnjs, jsdelivr
+    # Allows fonts from google
+    # Allows connection to Gemini API and Cal.com
+    # Prevents framing
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.png https://*.jpg https://*.jpeg https://*.svg https://*.webp; video-src 'self'; connect-src 'self' https://generativelanguage.googleapis.com https://api.cal.com https://www.google.com https://www.gstatic.com; frame-src https://www.google.com https://www.gstatic.com; frame-ancestors 'none';"
+    
+    # Anti-Clickjacking
+    Header set X-Frame-Options "DENY"
+    
+    # Anti-Sniffing
+    Header set X-Content-Type-Options "nosniff"
+    
+    # Referrer Policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions Policy
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=(), clipboard-write=(self)"
+</IfModule>
+
+# Hardening: Hide Server Info (if permitted by host)
+ServerSignature Off
+PassThru On

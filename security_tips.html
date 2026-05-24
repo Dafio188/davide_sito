@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Tips | Davide Fiore</title>
+
+    <!-- Fonts & Main CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=24">
+
+    <style>
+        /* PAGE SPECIFIC STYLES */
+        body {
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .security-hero {
+            text-align: center;
+            padding: 120px 20px 60px;
+        }
+
+        .security-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #1d1d1f 0%, #0071e3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto 100px;
+        }
+
+        /* INTERACTIVE CARD */
+        .tip-card {
+            position: relative;
+            height: 350px;
+            /* Fixed height for consistency */
+            perspective: 1000px;
+            cursor: default;
+        }
+
+        .tip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .tip-card:hover .tip-inner {
+            transform: rotateY(180deg);
+        }
+
+        .tip-front,
+        .tip-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        /* FRONT DESIGN */
+        .tip-front {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .tip-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .tip-card:hover .tip-icon {
+            transform: scale(1.1);
+        }
+
+        .tip-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1d1d1f;
+        }
+
+        .tip-question {
+            color: #6e6e73;
+            font-size: 1.1rem;
+        }
+
+        /* BACK DESIGN */
+        .tip-back {
+            background: linear-gradient(145deg, #1d1d1f, #2c2c2e);
+            color: white;
+            transform: rotateY(180deg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tip-solution-title {
+            color: #2980b9;
+            /* Bright Blue */
+            color: #0a84ff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .tip-desc {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .nav-back {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 100;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #1d1d1f;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .nav-back:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .security-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            /* On mobile, show back by distinct background instead */
+            .tip-inner {
+                transition: transform 0.5s;
+            }
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('consent', 'revoke'); // GDPR Compliant Default
+    fbq('init', '2479194409132857');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2479194409132857&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+
+    <!-- Background Blobs -->
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2" style="background: #e3f2fd;"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Back Button -->
+    <a href="index.html" class="nav-back">← Home</a>
+
+    <!-- Header -->
+    <section class="security-hero">
+        <span class="tag">Security Hub</span>
+        <h1>Difesa Digitale</h1>
+        <p class="section-subtitle" style="max-width: 700px; margin: 0 auto 40px;">
+            Ci sono minacce invisibili che mettono a rischio i tuoi dati ogni giorno.<br>
+            Ho raccolto qui le <strong>6 Regole Fondamentali</strong> per blindare la tua vita digitale.
+        </p>
+
+        <div
+            style="display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 113, 227, 0.1); padding: 8px 16px; border-radius: 20px; color: #0071e3; font-weight: 500; font-size: 0.9rem;">
+            <span>👆</span> Tocca le schede per scoprire le difese
+        </div>
+    </section>
+
+    <!-- Cards Grid -->
+    <div class="tips-grid">
+
+        <!-- CARD 1: PHISHING -->
+        <div class="tip-card">
+            <div class="tip-inner">
+                <div class="tip-front">
+                    <div class="tip-icon">🎣</div>
+                    <h3 class="tip-title">Phishing</h3>
+                    <p class="tip-question">"Hai vinto un iPhone!"... O no?</p>
+                </div>
+                <div class="tip-back">
+                    <span class="tip-solution-title">La Regola</span>
+                    <p class="tip-desc">Le banche non ti chiedono MAI la password via email. Se ricevi un link che crea
+                        urgenza ("Conto bloccato!"), fermati. <strong>Non cliccare.</strong> Chiama la banca
+                        ufficialmente.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 2: PASSWORD -->
+        <div class="tip-card">
+            <div class="tip-inner">
+                <div class="tip-front">
+                    <div class="tip-icon">🔑</div>
+                    <h3 class="tip-title">Password</h3>
+                    <p class="tip-question">Usi la stessa ovunque?</p>
+                </div>
+                <div class="tip-back">
+                    <span class="tip-solution-title">La Strategia</span>
+                    <p class="tip-desc">La lunghezza batte la complessità. Invece di <code>P@ss1</code>, usa una frase:
+                        <code>MioGattoMangiaPasta!</code>. E usa un <strong>Password Manager</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 3: MFA -->
+        <div class="tip-card">
+            <div class="tip-inner">
+                <div class="tip-front">
+                    <div class="tip-icon">📱</div>
+                    <h3 class="tip-title">2FA / MFA</h3>
+                    <p class="tip-question">La scocciatura che salva la vita.</p>
+                </div>
+                <div class="tip-back">
+                    <span class="tip-solution-title">Il Blocco Totale</span>
+                    <p class="tip-desc">Attiva l'<strong>Autenticazione a 2 Fattori</strong> ovunque (Google, Instagram,
+                        Banca). Anche se ti rubano la password, senza il tuo telefono non entrano.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 4: UPDATE -->
+        <div class="tip-card">
+            <div class="tip-inner">
+                <div class="tip-front">
+                    <div class="tip-icon">🔄</div>
+                    <h3 class="tip-title">Aggiornamenti</h3>
+                    <p class="tip-question">"Ricordamelo domani"... per sempre?</p>
+                </div>
+                <div class="tip-back">
+                    <span class="tip-solution-title">La Prevenzione</span>
+                    <p class="tip-desc">Gli aggiornamenti software chiudono le falle di sicurezza. Ritardarli significa
+                        lasciare la porta di casa aperta ai ladri. <strong>Aggiorna subito.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 5: WIFI -->
+        <div class="tip-card">
+            <div class="tip-inner">
+                <div class="tip-front">
+                    <div class="tip-icon">☕</div>
+                    <h3 class="tip-title">Wi-Fi Pubblico</h3>
+                    <p class="tip-question">Gratis non vuol dire sicuro.</p>
+                </div>
+                <div class="tip-back">
+                    <span class="tip-solution-title">L'Invisibilità</span>
+                    <p class="tip-desc">Nelle reti pubbliche (Bar, Aeroporti), chiunque può "ascoltare" il traffico. Se
+                        devi usarle, usa sempre una <strong>VPN</strong> o i dati del tuo cellulare.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 6: BACKUP -->
+        <div class="tip-card">
+            <div class="tip-inner">
+                <div class="tip-front">
+                    <div class="tip-icon">💾</div>
+                    <h3 class="tip-title">Ransomware</h3>
+                    <p class="tip-question">E se domani perdi tutti i dati?</p>
+                </div>
+                <div class="tip-back">
+                    <span class="tip-solution-title">L'Ancora di Salvezza</span>
+                    <p class="tip-desc">Contro i virus che criptano i file, l'unica difesa è il <strong>Backup
+                            Offline</strong>. Tieni una copia dei dati su un disco scollegato dal PC.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding-bottom: 40px; color: #6e6e73;">
+        <p>&copy; 2025 Davide Fiore - Security tips</p>
+    </footer>
+
+</body>
+
+</html>

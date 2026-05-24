@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & RAG | Davide Fiore</title>
+    <meta name="description"
+        content="Sviluppo soluzioni RAG (Retrieval Augmented Generation) e Chatbot AI per aziende. Trasforma i tuoi dati in conoscenza attiva.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=25">
+    <link rel="stylesheet" href="css/chatbot.css?v=25">
+    <link rel="canonical" href="https://www.davidefiore.com/ai-rag.html">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Google Consent Mode v2 -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_ads_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+    </script>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXWG2WN80N" id="ga-script" type="text/plain"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JXWG2WN80N');
+    </script>
+
+    <style>
+        .page-hero {
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, #fff, #a3a3a3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-sec);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+
+        .feature-card h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        /* Override per navigazione sticky */
+        nav {
+            position: fixed;
+            top: 20px;
+        }
+
+        @media(max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('consent', 'revoke'); // GDPR Compliant Default
+    fbq('init', '2479194409132857');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2479194409132857&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    <canvas id="neural-canvas"
+        style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; opacity:0.4;"></canvas>
+
+    <nav class="glass">
+        <div class="logo">Davide Fiore</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="news.php">News</a>
+            <a href="index.html#contact">Contatti</a>
+        </div>
+    </nav>
+
+    <section class="container page-hero">
+        <span class="tag">AI CORE</span>
+        <h1 class="page-title">Intelligenza Artificiale & RAG</h1>
+        <p class="section-subtitle">Oltre il semplice chatbot: costruiamo sistemi che "ragionano" sui tuoi dati
+            aziendali.</p>
+    </section>
+
+    <section class="container">
+        <div class="page-content">
+            <p>
+                L'adozione dell'Intelligenza Artificiale non riguarda solo l'uso di ChatGPT. Il vero valore per
+                un'azienda risiede nel <strong>RAG (Retrieval-Augmented Generation)</strong>: una tecnologia che
+                permette ai modelli AI di accedere in tempo reale alla tua documentazione interna (PDF, Database, Email)
+                per fornire risposte precise, contestualizzate e sicure.
+            </p>
+
+            <div class="feature-grid">
+                <div class="feature-card glass">
+                    <h3>Zero Allucinazioni</h3>
+                    <p>Ancorando l'AI ai tuoi dati reali, eliminiamo le risposte inventate. Se l'informazione non è nei
+                        documenti, il sistema ammette di non saperlo.</p>
+                </div>
+                <div class="feature-card glass">
+                    <h3>Privacy First</h3>
+                    <p>I tuoi dati non devono necessariamente lasciare i tuoi server. Implementiamo modelli Open Source
+                        (Llama 3, Mistral) ospitati localmente o su cloud privato.</p>
+                </div>
+                <div class="feature-card glass">
+                    <h3>Ricerca Semantica</h3>
+                    <p>Dimentica la ricerca per keyword. I nostri sistemi comprendono il "significato" della domanda,
+                        trovando informazioni anche se le parole esatte non corrispondono.</p>
+                </div>
+                <div class="feature-card glass">
+                    <h3>Integrazione Totale</h3>
+                    <p>Colleghiamo l'AI ai tuoi strumenti: Slack, Teams, WhatsApp o il tuo gestionale custom tramite API
+                        sicure.</p>
+                </div>
+            </div>
+
+            <h2 style="color:white; margin-bottom: 20px; font-size: 2rem;">Casi d'Uso Concreti</h2>
+            <ul style="list-style: none; padding: 0; margin-bottom: 60px;">
+                <li style="margin-bottom: 20px; padding-left: 20px; border-left: 2px solid var(--accent);">
+                    <strong style="color:white;">Customer Support Automatizzato:</strong> Un assistente che risponde ai
+                    clienti consultando i manuali tecnici e lo storico ordini.
+                </li>
+                <li style="margin-bottom: 20px; padding-left: 20px; border-left: 2px solid var(--accent);">
+                    <strong style="color:white;">Analisi Contrattuale:</strong> Estrai clausole, scadenze e rischi da
+                    migliaia di PDF legali in pochi secondi.
+                </li>
+                <li style="margin-bottom: 20px; padding-left: 20px; border-left: 2px solid var(--accent);">
+                    <strong style="color:white;">Onboarding Dipendenti:</strong> Un "Senior Virtuale" che risponde a
+                    tutte le domande dei nuovi assunti sulle policy aziendali.
+                </li>
+            </ul>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <h3 style="color: white; margin-bottom: 20px;">Pronto a implementare l'AI nella tua azienda?</h3>
+                <a href="index.html#contact" class="btn">Prenota una consulenza RAG</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="text-align: center; padding: 50px 0; color: var(--text-sec); font-size: 0.9rem;">
+            &copy; 2026 Davide Fiore - CyberSecurity & AI Development
+        </div>
+    </footer>
+    <script src="js/main.js?v=25"></script>
+    <!-- PREMIUM FX -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="js/premium-effects.js?v=25"></script>
+</body>
+
+</html>

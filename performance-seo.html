@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed & Performance | Davide Fiore</title>
+    <meta name="description"
+        content="Ottimizzazione Core Web Vitals, SEO Tecnico e performance web estreme. Velocizza il tuo sito per convertire di più.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=25">
+    <link rel="canonical" href="https://www.davidefiore.com/performance-seo.html">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Google Consent Mode v2 -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_ads_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+    </script>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXWG2WN80N" id="ga-script" type="text/plain"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JXWG2WN80N');
+    </script>
+
+    <style>
+        .page-hero {
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, #fff, #a3a3a3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-sec);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+
+        .feature-card h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            position: fixed;
+            top: 20px;
+        }
+
+        @media(max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('consent', 'revoke'); // GDPR Compliant Default
+    fbq('init', '2479194409132857');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2479194409132857&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    <canvas id="neural-canvas"
+        style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; opacity:0.4;"></canvas>
+
+    <nav class="glass">
+        <div class="logo">Davide Fiore</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="news.php">News</a>
+            <a href="index.html#contact">Contatti</a>
+        </div>
+    </nav>
+
+    <section class="container page-hero">
+        <span class="tag"
+            style="background: rgba(245, 158, 11, 0.1); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">OPTIMIZATION</span>
+        <h1 class="page-title">Speed & Performance</h1>
+        <p class="section-subtitle">Il caricamento istantaneo non è magia, è ingegneria. Ottimizza per scalare i motori
+            di ricerca.</p>
+    </section>
+
+    <section class="container">
+        <div class="page-content">
+            <p>
+                Nel web moderno, ogni millisecondo conta. Google penalizza i siti lenti e gli utenti abbandonano le
+                pagine che impiegano più di 3 secondi a caricare. Il mio approccio alla performance è ossessivo e basato
+                sui dati: non mi fermo finché il punteggio Lighthouse non è verde (95-100).
+            </p>
+
+            <div class="feature-grid">
+                <div class="feature-card glass">
+                    <h3>Core Web Vitals</h3>
+                    <p>Ottimizzazione chirurgica di LCP (Largest Contentful Paint), FID (Input Delay) e CLS (Layout
+                        Shift) per garantire un'esperienza utente fluida e stabile.</p>
+                </div>
+                <div class="feature-card glass">
+                    <h3>SEO Tecnico</h3>
+                    <p>Struttura semantica perfetta, meta tag dinamici, JSON-LD schema markup e accessibilità AA.
+                        Rendiamo il tuo sito irresistibile per i crawler di Google.</p>
+                </div>
+                <div class="feature-card glass">
+                    <h3>Edge Computing</h3>
+                    <p>Utilizzo di CDN avanzate (Cloudflare, Vercel Edge) per servire i contenuti dal server più vicino
+                        all'utente, riducendo la latenza al minimo fisico.</p>
+                </div>
+                <div class="feature-card glass">
+                    <h3>Modern Formats</h3>
+                    <p>Immagini in WebP/AVIF, video compressi e lazy-loading intelligente. Riduciamo il peso della
+                        pagina senza sacrificare la qualità visiva.</p>
+                </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 16px; margin-bottom: 50px;">
+                <h3 style="color:white; margin-bottom: 10px;">Perché è importante?</h3>
+                <p style="margin-bottom: 0;">Un miglioramento del tempo di caricamento da 5s a 1s può aumentare il tasso
+                    di conversione (vendite/lead) fino al <strong>30%</strong>. La performance è la prima feature di
+                    ogni prodotto di successo.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <h3 style="color: white; margin-bottom: 20px;">Il tuo sito è lento?</h3>
+                <a href="index.html#contact" class="btn">Richiedi un Audit Gratuito</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="text-align: center; padding: 50px 0; color: var(--text-sec); font-size: 0.9rem;">
+            &copy; 2026 Davide Fiore - CyberSecurity & AI Development
+        </div>
+    </footer>
+    <script src="js/main.js?v=25"></script>
+    <!-- PREMIUM FX -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="js/premium-effects.js?v=25"></script>
+</body>
+
+</html>

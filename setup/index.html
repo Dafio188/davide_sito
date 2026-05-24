@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davide Fiore | CyberSecurity & AI Development</title>
+    <meta name="description"
+        content="Portfolio di Davide Fiore, Senior UI Engineer & Apple Design Specialist. Sviluppo Software, AI, Cybersecurity e Formazione.">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css?v=999">
+    <link rel="stylesheet" href="css/globe-3d.css?v=999">
+    <link rel="stylesheet" href="css/chatbot.css?v=999">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+
+<body>
+
+    <!-- Sfondo Animato -->
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigazione -->
+    <nav class="glass">
+        <div class="logo">Davide Fiore</div>
+        <div class="nav-links">
+            <a href="#about">Chi Sono</a>
+            <a href="#services">Servizi</a>
+            <a href="#contact">Contatti</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container hero" id="about">
+        <!-- Floating Shards for Animation -->
+        <div class="glass-shard shard-left"></div>
+        <div class="glass-shard shard-right"></div>
+        <div class="glass-shard shard-center"></div>
+
+        <img src="assets/avatar_new.png" alt="Davide Fiore Avatar" class="hero-avatar">
+        <span class="tag">Security • Development • AI</span>
+        <h1>Sviluppo Solido<br>Intelligenza Sicura</h1>
+        <p>Unisco l'ingegneria del software e la CyberSecurity per creare soluzioni AI e Web App che trasformano il
+            business, senza rischi.</p>
+
+        <div class="cta-group">
+            <a href="javascript:void(0)" class="btn trigger-chat-open">Prenota una Call Conoscitiva</a>
+        </div>
+    </section>
+
+
+    <!-- Data Globe 3D Section -->
+    <section class="container">
+        <div class="globe-section">
+            <div class="center-pulse"></div>
+            <div class="center-pulse" style="animation-delay: 1s"></div>
+            <div class="center-pulse" style="animation-delay: 2s"></div>
+
+            <div class="scan-line-globe"></div>
+
+            <div id="globe-canvas"></div>
+
+            <div class="globe-overlay">
+                <div class="globe-title">
+                    <div class="title-badge">
+                        ⚡ GLOBAL NETWORK
+                    </div>
+                    <h2 class="globe-main-title">
+                        <span class="highlight">Connected</span> Intelligence
+                    </h2>
+                    <p class="globe-sub-title">Real-time data visualization • AI-powered security</p>
+                </div>
+
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-nodes">0</div>
+                        <div class="stat-label">Active Nodes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-connections">0</div>
+                        <div class="stat-label">Connections</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-data">0TB</div>
+                        <div class="stat-label">Data Flow</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects / Bento Grid Section -->
+    <section class="container" id="services">
+        <h2 class="section-title">Ecosistema Digitale</h2>
+        <p class="section-subtitle">Dalle basi del codice all'addestramento AI personalizzato</p>
+
+        <div class="bento-grid">
+            <div class="card glass span-1">
+                <div>
+                    <div class="icon-box">💻</div>
+                    <h3>Sviluppo App & Web</h3>
+                </div>
+                <p>Web App reattive e Applicazioni Android native. Codice pulito, architetture scalabili e focus
+                    maniacale sulla User Experience</p>
+            </div>
+
+            <div class="card glass span-2">
+                <div>
+                    <div class="icon-box">📊</div>
+                    <h3>CRM & Gestionali PMI</h3>
+                </div>
+                <p>Abbandona i fogli Excel per sistemi centralizzati, sicuri e accessibili ovunque. Dashboard
+                    personalizzate per il controllo totale del tuo business, progettate su misura per le tue esigenze
+                    operative</p>
+            </div>
+
+            <div class="card glass card-dark span-2">
+                <div>
+                    <div class="icon-box">🧠</div>
+                    <h3>AI & Sistemi RAG</h3>
+                </div>
+                <p>La potenza dell'AI specifica per i tuoi dati. Creo <strong>Chatbot personalizzati</strong> con
+                    tecnologia RAG (Retrieval-Augmented Generation) che rispondono basandosi esclusivamente sui tuoi
+                    documenti aziendali, garantendo privacy e precisione assoluta</p>
+            </div>
+
+            <div class="card glass span-1">
+                <div>
+                    <div class="icon-box">🎓</div>
+                    <h3>Training AI & Security</h3>
+                </div>
+                <p>Formazione pratica per professionisti: impara a scrivere prompt efficaci, integrare l'AI nel flusso
+                    di lavoro e proteggere i tuoi asset digitali</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab / Side Projects Section -->
+    <section class="container" id="lab">
+        <h2 class="section-title">Personal Lab</h2>
+        <p class="section-subtitle">Oltre il codice aziendale: progetti indipendenti, astronomia e game development</p>
+
+        <div class="lab-grid">
+            <!-- AstroGuida Card -->
+            <div class="glass lab-card">
+                <div class="lab-image-container">
+                    <img src="assets/astroguida_preview.webp" alt="AstroGuida App" class="lab-image">
+                    <div class="lab-overlay"></div>
+                </div>
+                <div class="lab-content">
+                    <div class="lab-header">
+                        <h3>AstroGuida</h3>
+                        <span class="tag-small">Android App</span>
+                    </div>
+                    <p>L'app di riferimento per l'astronomia in Puglia. Mappe stellari, eventi e community in tasca</p>
+                    <div class="lab-actions">
+                        <a href="https://play.google.com/store/apps/details?id=com.astroguida.app_gemini_astroguida"
+                            target="_blank" class="btn-text">
+                            📲 Play Store
+                        </a>
+                        <a href="https://www.astroguida.com" target="_blank" class="btn-text">
+                            🌍 Sito Web
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ruota della Conoscenza Card -->
+            <div class="glass lab-card">
+                <div class="lab-image-container">
+                    <img src="assets/ruota_preview.jpg" alt="Ruota della Conoscenza" class="lab-image">
+                    <div class="lab-overlay"></div>
+                </div>
+                <div class="lab-content">
+                    <div class="lab-header">
+                        <h3>Ruota della Conoscenza</h3>
+                        <span class="tag-small">Trivia Game</span>
+                    </div>
+                    <p>Un gioco educativo con migliaia di domande estratte direttamente dalla Bibbia. Sfida la tua
+                        conoscenza</p>
+                    <div class="lab-actions">
+                        <span class="btn-text" style="opacity: 0.5; cursor: default;">Coming to Stores</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="contact" style="text-align: center; padding-bottom: 80px;">
+        <h2 class="section-title">Parliamo del tuo progetto</h2>
+        <p class="section-subtitle">Hai un'idea o una sfida tecnica? Scrivimi per parlarne.</p>
+
+        <div class="glass contact-card-form"
+            style="max-width: 500px; margin: 0 auto; padding: 40px; border-radius: 24px;">
+
+            <form id="contact-form" onsubmit="submitContactForm(event)">
+                <div class="contact-header">
+                    <p style="margin-bottom: 20px; color: var(--text-sec);">Compila il modulo per una risposta rapida
+                        via email.</p>
+                </div>
+
+                <input type="text" id="form-name" class="form-input" placeholder="Il tuo nome" required>
+                <input type="email" id="form-email" class="form-input" placeholder="La tua email" required>
+                <textarea id="form-message" class="form-input" placeholder="Descrivi brevemente il tuo progetto..."
+                    rows="4" required></textarea>
+
+                <div
+                    style="text-align: left; margin-bottom: 20px; font-size: 0.8rem; color: var(--text-sec); display: flex; align-items: start; gap: 10px;">
+                    <input type="checkbox" id="form-privacy" required style="margin-top: 3px;">
+                    <label for="form-privacy">Acconsento al trattamento dei dati personali (GDPR). I tuoi dati non
+                        saranno mai ceduti a terzi.</label>
+                </div>
+
+                <button type="submit" class="btn btn-full" id="form-submit-btn">
+                    <span>Invia Messaggio</span>
+                </button>
+
+                <p id="form-status" class="small-note"></p>
+            </form>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="glass footer-pill">
+                &copy; 2025 Davide Fiore - CyberSecurity & Software Dev
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js?v=999"></script>
+    <script src="js/globe-3d.js?v=999"></script>
+    <script src="js/chatbot.js?v=999"></script>
+</body>
+
+</html>

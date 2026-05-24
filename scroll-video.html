@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Scroll Experience | Davide Fiore</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Reuse Main CSS -->
+    <link rel="stylesheet" href="css/style.css?v=14">
+
+    <style>
+        body {
+            background-color: #000;
+            /* Deep black for cinematic feel */
+            overscroll-behavior: none;
+        }
+
+        /* 🎬 CONTAINER SCROLLABILE (Timeline) */
+        .scrolly-container {
+            position: relative;
+            height: 400vh;
+            /* 4x l'altezza dello schermo = scroll più lento/preciso */
+            width: 100%;
+        }
+
+        /* 📌 ELEMENTO STICKY (La "Camera") */
+        .sticky-viewport {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        canvas {
+            /* Fix per renderizzare nitido su retina */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Riempie lo schermo */
+        }
+
+        /* ⏳ LOADER */
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease-out;
+        }
+
+        .loader-text {
+            color: var(--text-sec);
+            font-family: 'JetBrains Mono', monospace;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            width: 200px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--accent);
+            transition: width 0.1s linear;
+        }
+
+        /* Testo in sovraimpressione (Opzionale) */
+        .scroll-caption {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        .scroll-caption.visible {
+            opacity: 1;
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('consent', 'revoke'); // GDPR Compliant Default
+    fbq('init', '2479194409132857');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2479194409132857&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div class="loader-overlay" id="loader">
+        <h2 style="color:white; font-weight:500;">Caricamento Sequenza</h2>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="loader-text" id="loader-text">0%</div>
+    </div>
+
+    <!-- NAVIGATION BACK -->
+    <nav class="glass" style="transform: translateX(-50%); top: 20px;">
+        <div class="nav-links">
+            <a href="index.html">← Torna alla Home</a>
+        </div>
+    </nav>
+
+    <!-- SCROLLYTELLING SECTION -->
+    <div class="scrolly-container">
+        <div class="sticky-viewport">
+            <canvas id="video-canvas"></canvas>
+
+            <div class="scroll-caption" id="caption-start">
+                <h2 class="section-title">Esplora la Visione</h2>
+                <p>Scorri verso il basso per avanzare</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENT AFTER VIDEO -->
+    <section class="container" style="position: relative; z-index: 20; background: var(--bg-color); min-height: 50vh;">
+        <div class="glass card" style="text-align: center; margin-top: -50px;">
+            <h2>Esperienza Completata</h2>
+            <p style="color: var(--text-sec); margin-top: 10px;">L'animazione fluida permette di analizzare ogni
+                dettaglio al tuo ritmo.</p>
+            <a href="index.html" class="btn" style="margin-top: 30px;">Inizia il Progetto</a>
+        </div>
+    </section>
+
+    <script>
+        const canvas = document.getElementById("video-canvas");
+        const context = canvas.getContext("2d");
+        const loader = document.getElementById("loader");
+        const progressFill = document.getElementById("progress-fill");
+        const loaderText = document.getElementById("loader-text");
+
+        // CONFIGURAZIONE
+        const frameCount = 40; // Numero totale frame
+        const imgFolder = 'videopresentazione/'; // Percorso cartella
+
+        // Genera nomi file: ezgif-frame-001.jpg ...
+        const currentFrame = index => (
+            `${imgFolder}ezgif-frame-${index.toString().padStart(3, '0')}.jpg`
+        );
+
+        // PRELOAD IMMAGINI
+        const images = [];
+        const frames = { frame: 0 };
+
+        const preloadImages = () => {
+            let loadedCount = 0;
+
+            for (let i = 1; i <= frameCount; i++) {
+                const img = new Image();
+                img.src = currentFrame(i);
+                img.onload = () => {
+                    loadedCount++;
+                    const percent = Math.round((loadedCount / frameCount) * 100);
+
+                    // Update UI Loader
+                    progressFill.style.width = `${percent}%`;
+                    loaderText.innerText = `${percent}%`;
+
+                    if (loadedCount === frameCount) {
+                        setTimeout(() => {
+                            loader.style.opacity = '0';
+                            setTimeout(() => loader.remove(), 800);
+                            initScrollAnimation();
+                        }, 500);
+                    }
+                };
+                images.push(img);
+            }
+        };
+
+        // SETUP CANVAS & RESIZE
+        const updateImage = index => {
+            const img = images[index - 1]; // Array is 0-indexed, frames 1-40
+            if (!img) return;
+
+            // Logica "Cover" per Canvas (riempie schermo mantenendo aspect ratio)
+            const cw = canvas.width;
+            const ch = canvas.height;
+            const iw = img.width;
+            const ih = img.height;
+
+            const ratio = Math.max(cw / iw, ch / ih);
+            const newWidth = iw * ratio;
+            const newHeight = ih * ratio;
+
+            const dx = (cw - newWidth) / 2;
+            const dy = (ch - newHeight) / 2;
+
+            context.clearRect(0, 0, cw, ch);
+            context.drawImage(img, 0, 0, iw, ih, dx, dy, newWidth, newHeight);
+        };
+
+        const resizeCanvas = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            // Ridisegna il frame corrente dopo il resize
+            const scrollValues = getScrollProgress();
+            const frameIndex = Math.min(
+                frameCount - 1,
+                Math.ceil(scrollValues.progress * frameCount)
+            );
+            updateImage(Math.max(1, frameIndex + 1));
+        };
+
+        window.addEventListener('resize', resizeCanvas);
+
+        // SCROLL LOGIC
+        const getScrollProgress = () => {
+            const container = document.querySelector('.scrolly-container');
+            const containerTop = container.getBoundingClientRect().top;
+            const containerHeight = container.scrollHeight - window.innerHeight;
+
+            // Calcola quanto abbiamo scrollato DENTRO il container
+            // (top diventa negativo man mano che scendiamo)
+            let progress = -containerTop / containerHeight;
+
+            // Limitiamo tra 0 e 1
+            progress = Math.max(0, Math.min(1, progress));
+
+            return { progress };
+        };
+
+        const initScrollAnimation = () => {
+            resizeCanvas(); // Set initial size
+            updateImage(1); // First frame
+
+            window.addEventListener('scroll', () => {
+                const { progress } = getScrollProgress();
+
+                // Mappa progresso (0.0 - 1.0) a indice frame (1 - 40)
+                const frameIndex = Math.min(
+                    frameCount - 1,
+                    Math.floor(progress * frameCount)
+                );
+
+                // Request Animation Frame per fluidità
+                requestAnimationFrame(() => updateImage(frameIndex + 1));
+
+                // Opzionale: Nascondi caption dopo lo start
+                const caption = document.getElementById('caption-start');
+                if (progress > 0.1) caption.classList.remove('visible');
+                else caption.classList.add('visible');
+            });
+
+            // Show caption initially
+            document.getElementById('caption-start').classList.add('visible');
+        };
+
+        // START
+        preloadImages();
+
+    </script>
+</body>
+
+</html>

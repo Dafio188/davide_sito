@@ -1,0 +1,15 @@
+{
+  "name": "davidefiore-website",
+  "version": "1.0.0",
+  "description": "Davide Fiore Portfolio with AI Chatbot",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  }
+}

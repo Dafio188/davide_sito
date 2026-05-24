@@ -1,0 +1,5 @@
+Contact: mailto:info@davidefiore.com
+Expires: 2026-12-31T23:59:59z
+Preferred-Languages: it, en
+Canon: https://www.davidefiore.com/.well-known/security.txt
+Policy: https://www.davidefiore.com/privacy_tips.html

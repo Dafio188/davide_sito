@@ -1,0 +1,35 @@
+{
+    "profilo_personale": {
+        "nome": "Davide Fiore",
+        "origini": "Nato a Bari in una famiglia numerosa (9 figli, penultimo della fratellanza).",
+        "background_familiare": "Figlio di un commerciante e commissionario di ortofrutta presso i Mercati Generali di Bari.",
+        "valori": "Etica del lavoro appresa nell'azienda di famiglia, resilienza e spirito imprenditoriale."
+    },
+    "percorso_professionale": [
+        {
+            "fase": "1. Gli Inizi e l'Azienda di Famiglia (Fino a 25 anni)",
+            "settore": "Commercio ortofrutticolo",
+            "ruolo": "Gestione forniture per supermercati nella provincia di Bari",
+            "competenze_acquisite": "Negoziazione, logistica, gestione dei rapporti commerciali e problem solving operativo."
+        },
+        {
+            "fase": "2. La Transizione all'Informatica e l'Imprenditoria (Dal 1998)",
+            "svolta": "Passaggio dal settore primario all'Hardware/Software spinto dalla passione tecnologica.",
+            "esperienza_imprenditoriale": "Fondatore di una società di successo insieme a due soci (tra cui il partner chiave Umberto Ciccarelli).",
+            "risultati": "La società ha operato per molti anni con fatturati milionari, diventando un punto di riferimento nel mercato locale.",
+            "adattamento": "Capacità di analizzare il declino della vendita hardware tradizionale a causa dell'avvento dell'e-commerce (Amazon) e del mercato elettronico."
+        },
+        {
+            "fase": "3. Consulenza e Automazione",
+            "collaborazioni_chiave": "Partner tecnologico della Soc. Coop. Epygnosis (collaborazione tuttora attiva).",
+            "focus_tecnico": "Progetti di automazione elettronica e informatica per aziende, consulenza strategica IT."
+        },
+        {
+            "fase": "4. Cybersecurity e Intelligenza Artificiale (Ruolo Attuale)",
+            "azienda": "Tempo srl",
+            "specializzazione": "Esperto in CyberSecurity",
+            "interessi": "Profonda passione e competenza nello studio e applicazione dell'Intelligenza Artificiale."
+        }
+    ],
+    "note_filosofiche": "Davide unisce la concretezza del commercio tradizionale alla visione del digitale avanzato."
+}
