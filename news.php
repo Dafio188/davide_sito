@@ -1,7 +1,8 @@
 <?php
 /**
  * Sezione Tech News - davidefiore.com
- * Visualizzazione dinamica delle notizie tecnologiche giornaliere
+ * Visualizzazione dinamica ed interattiva delle notizie tecnologiche
+ * Caratteristiche premium WAHU!: Filtri fluidi, Caricamento staggered, Lettore TTS AI, Barra progresso
  */
 
 require_once __DIR__ . '/api/db.php';
@@ -21,6 +22,22 @@ function format_italian_date($date_str) {
     $year = date('Y', $timestamp);
     
     return "{$day} {$months[$month_num]} {$year}";
+}
+
+// Assegnazione automatica intelligente della categoria in base al contenuto (Zero allucinazioni)
+function get_article_category($title, $content) {
+    $text = mb_strtolower($title . ' ' . $content, 'UTF-8');
+    
+    if (mb_strpos($text, 'ai') !== false || mb_strpos($text, 'intelligenza') !== false || mb_strpos($text, 'chatbot') !== false || mb_strpos($text, 'rag') !== false || mb_strpos($text, 'modelli') !== false) {
+        return 'AI & RAG';
+    }
+    if (mb_strpos($text, 'cybersecurity') !== false || mb_strpos($text, 'sicurezza') !== false || mb_strpos($text, 'hacker') !== false || mb_strpos($text, 'difesa') !== false || mb_strpos($text, 'phishing') !== false) {
+        return 'CyberSecurity';
+    }
+    if (mb_strpos($text, 'next.js') !== false || mb_strpos($text, 'frontend') !== false || mb_strpos($text, 'web') !== false || mb_strpos($text, 'rendering') !== false || mb_strpos($text, 'app') !== false) {
+        return 'Web Dev';
+    }
+    return 'Tech Trend';
 }
 
 // Recupera le notizie dal database SQLite
@@ -55,7 +72,7 @@ try {
     <link rel="stylesheet" href="css/style.css?v=25">
     <link rel="stylesheet" href="css/news.css?v=25">
 
-    <!-- Google Consent Mode v2 & GA4 (Coerente con index) -->
+    <!-- Google Consent Mode v2 & GA4 -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -107,6 +124,19 @@ try {
         <p class="section-subtitle">Resta aggiornato con l'analisi quotidiana sulle ultime evoluzioni di AI, CyberSecurity e Architetture Software.</p>
     </section>
 
+    <!-- 🟢 BARRA FILTRI CATEGORIA (Apple Segmented Control Style) -->
+    <?php if (empty($error_msg) && !empty($articles)): ?>
+        <div class="news-filter-container">
+            <div class="news-filter-bar glass">
+                <button class="filter-btn active" onclick="filterCategory('all')">Tutte</button>
+                <button class="filter-btn" onclick="filterCategory('AI & RAG')">AI & RAG</button>
+                <button class="filter-btn" onclick="filterCategory('CyberSecurity')">CyberSecurity</button>
+                <button class="filter-btn" onclick="filterCategory('Web Dev')">Web Dev</button>
+                <button class="filter-btn" onclick="filterCategory('Tech Trend')">Tech Trend</button>
+            </div>
+        </div>
+    <?php endif; ?>
+
     <!-- Griglia delle News -->
     <main class="container">
         <?php if (!empty($error_msg)): ?>
@@ -123,8 +153,20 @@ try {
             </div>
         <?php else: ?>
             <div class="news-grid">
-                <?php foreach ($articles as $article): ?>
-                    <article class="news-card" onclick="openNewsModal(<?= htmlspecialchars(json_encode($article), ENT_QUOTES, 'UTF-8') ?>)" tabindex="0" aria-label="Leggi articolo: <?= htmlspecialchars($article['title']) ?>">
+                <?php 
+                $index = 0;
+                foreach ($articles as $article): 
+                    $category = get_article_category($article['title'], $article['content']);
+                    // Ritardo staggering calcolato
+                    $animation_delay = $index * 0.08;
+                    $index++;
+                ?>
+                    <article class="news-card" 
+                             data-category="<?= htmlspecialchars($category) ?>" 
+                             style="animation-delay: <?= $animation_delay ?>s;"
+                             onclick="openNewsModal(<?= htmlspecialchars(json_encode($article), ENT_QUOTES, 'UTF-8') ?>, '<?= htmlspecialchars($category) ?>')" 
+                             tabindex="0" 
+                             aria-label="Leggi articolo: <?= htmlspecialchars($article['title']) ?>">
                         
                         <div class="news-card-img-wrapper">
                             <?php if (!empty($article['image_url'])): ?>
@@ -143,7 +185,7 @@ try {
                                 <time class="news-card-date" datetime="<?= date('Y-m-d', strtotime($article['created_at'])) ?>">
                                     <?= format_italian_date($article['created_at']) ?>
                                 </time>
-                                <span class="news-card-tag">Tech Trend</span>
+                                <span class="news-card-tag"><?= htmlspecialchars($category) ?></span>
                             </div>
                             
                             <h2 class="news-card-title"><?= htmlspecialchars($article['title']) ?></h2>
@@ -166,6 +208,11 @@ try {
     <div class="news-modal" id="news-detail-modal" aria-hidden="true" role="dialog">
         <div class="news-modal-overlay" id="modal-overlay"></div>
         <div class="news-modal-container">
+            <!-- 🟥 Barra di Progresso di Lettura (WAHU!) -->
+            <div class="modal-progress-container">
+                <div class="modal-progress-bar" id="modal-progress"></div>
+            </div>
+
             <button class="news-modal-close-btn" onclick="closeNewsModal()" aria-label="Chiudi finestra">✕</button>
             
             <div id="modal-img-container" style="position: relative;">
@@ -176,8 +223,22 @@ try {
             </div>
 
             <div class="news-modal-body">
+                <!-- 🔊 AI Voice Player Integrato (WAHU!) -->
+                <div class="tts-player-container">
+                    <button class="tts-play-btn" id="tts-play-btn" onclick="toggleTTS()" aria-label="Ascolta l'articolo ad alta voce">
+                        <span id="tts-icon">🔊</span> Ascolta l'Articolo
+                    </button>
+                    <div class="sound-wave" id="sound-wave" style="display: none;">
+                        <span class="stroke"></span>
+                        <span class="stroke"></span>
+                        <span class="stroke"></span>
+                        <span class="stroke"></span>
+                        <span class="stroke"></span>
+                    </div>
+                </div>
+
                 <div class="news-modal-meta">
-                    <span class="news-card-tag">Tech Insight</span>
+                    <span id="modal-tag" class="news-card-tag">Tech Insight</span>
                     <span id="modal-date" class="news-modal-date"></span>
                 </div>
                 
@@ -212,23 +273,64 @@ try {
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script src="js/premium-effects.js?v=25"></script>
 
-    <!-- Modal Logic -->
+    <!-- JavaScript Interactive Logic -->
     <script>
-        function openNewsModal(article) {
+        // 🟢 1. FILTRI CATEGORIA CON TRANSIZIONE FLUIDA
+        function filterCategory(category) {
+            // Riconfigura il bottone attivo
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+
+            const cards = document.querySelectorAll('.news-card');
+            
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                
+                if (category === 'all' || cardCat === category) {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(15px) scale(0.96)';
+                    card.style.display = 'flex';
+                    
+                    // Trigger reflow per avviare transizione
+                    setTimeout(() => {
+                        card.style.transition = 'all 0.5s var(--ease-apple)';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0) scale(1)';
+                    }, 50);
+                } else {
+                    card.style.transition = 'all 0.35s var(--ease-apple)';
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(15px) scale(0.96)';
+                    
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 350);
+                }
+            });
+        }
+
+        // 🟢 2. LOGICA MODALE DETTAGLIO
+        function openNewsModal(article, category) {
             const modal = document.getElementById('news-detail-modal');
             const titleEl = document.getElementById('modal-title');
             const dateEl = document.getElementById('modal-date');
+            const tagEl = document.getElementById('modal-tag');
             const contentEl = document.getElementById('modal-content');
             const imgEl = document.getElementById('modal-img');
             const fallbackEl = document.getElementById('modal-fallback-img');
             const sourceWrapper = document.getElementById('modal-source-wrapper');
             const sourceLink = document.getElementById('modal-source-link');
 
+            // Reset progress bar e player audio
+            document.getElementById('modal-progress').style.width = '0%';
+            resetTTSPlayer();
+
             // Popola dati
             titleEl.textContent = article.title;
             dateEl.textContent = formatDate(article.created_at);
-            
-            // Popola il contenuto HTML (articoli di 300+ parole)
+            tagEl.textContent = category;
             contentEl.innerHTML = article.content || '<p>Nessun contenuto disponibile per questo articolo.</p>';
 
             // Gestione Immagine
@@ -266,9 +368,13 @@ try {
             modal.classList.remove('active');
             modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
+            
+            // Interrompe la lettura vocale quando si chiude la modale
+            window.speechSynthesis.cancel();
+            resetTTSPlayer();
         }
 
-        // Formattazione della data in JS in sintonia con il backend
+        // Formattazione data
         function formatDate(dateStr) {
             const date = new Date(dateStr);
             if (isNaN(date.getTime())) return dateStr;
@@ -281,17 +387,99 @@ try {
             return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
         }
 
-        // Event Listeners per la chiusura
+        // 🟢 3. BARRA DI PROGRESSOLETTURA IN TEMPO REALE
+        const modalContainer = document.querySelector('.news-modal-container');
+        modalContainer.addEventListener('scroll', () => {
+            const winScroll = modalContainer.scrollTop;
+            const height = modalContainer.scrollHeight - modalContainer.clientHeight;
+            const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+            document.getElementById('modal-progress').style.width = scrolled + '%';
+        });
+
+        // 🟢 4. AI VOICE "READ ALOUD" PLAYER (Web Speech API)
+        let isSpeaking = false;
+        let currentUtterance = null;
+
+        function toggleTTS() {
+            const playBtn = document.getElementById('tts-play-btn');
+            const iconEl = document.getElementById('tts-icon');
+            const waveEl = document.getElementById('sound-wave');
+            
+            if (isSpeaking) {
+                // Metti in pausa / cancella
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                iconEl.textContent = '🔊';
+                playBtn.innerHTML = '<span id="tts-icon">🔊</span> Ascolta l\'Articolo';
+                waveEl.style.display = 'none';
+            } else {
+                // Ferma eventuali letture residue
+                window.speechSynthesis.cancel();
+                
+                // Estrai titolo e testo pulito
+                const titleText = document.getElementById('modal-title').innerText;
+                const bodyHTML = document.getElementById('modal-content').innerHTML;
+                
+                // Pulizia dei tag HTML per far leggere solo testo pulito
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = bodyHTML;
+                const bodyText = tempDiv.innerText || tempDiv.textContent;
+                
+                const fullText = titleText + ". " + bodyText;
+                
+                currentUtterance = new SpeechSynthesisUtterance(fullText);
+                currentUtterance.lang = 'it-IT';
+                
+                // Configura voce italiana se disponibile
+                const voices = window.speechSynthesis.getVoices();
+                const italianVoice = voices.find(voice => voice.lang.startsWith('it'));
+                if (italianVoice) {
+                    currentUtterance.voice = italianVoice;
+                }
+
+                currentUtterance.onend = function() {
+                    resetTTSPlayer();
+                };
+                
+                currentUtterance.onerror = function() {
+                    resetTTSPlayer();
+                };
+
+                window.speechSynthesis.speak(currentUtterance);
+                isSpeaking = true;
+                iconEl.textContent = '⏸';
+                playBtn.innerHTML = '<span id="tts-icon">⏸</span> Pausa Lettura';
+                waveEl.style.display = 'flex';
+            }
+        }
+
+        function resetTTSPlayer() {
+            isSpeaking = false;
+            const playBtn = document.getElementById('tts-play-btn');
+            if (playBtn) {
+                playBtn.innerHTML = '<span id="tts-icon">🔊</span> Ascolta l\'Articolo';
+            }
+            const waveEl = document.getElementById('sound-wave');
+            if (waveEl) {
+                waveEl.style.display = 'none';
+            }
+        }
+
+        // Caricamento asincrono voci per Web Speech API
+        window.speechSynthesis.onvoiceschanged = function() {
+            // Aggiorna le voci disponibili del browser
+        };
+
+        // Event Listeners di chiusura modale
         document.getElementById('modal-overlay').addEventListener('click', closeNewsModal);
         
-        // Supporto per il tasto ESC (Accessibilità)
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeNewsModal();
             }
         });
 
-        // Supporto per l'apertura delle cards tramite tastiera (tasto Enter)
+        // Supporto accessibilità tastiera per le cards
         document.querySelectorAll('.news-card').forEach(card => {
             card.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter') {
