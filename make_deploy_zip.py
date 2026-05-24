@@ -22,7 +22,9 @@ def zip_website(output_filename):
         'assets',
         'css',
         'js',
-        'videos'
+        'videos',
+        'news.php',
+        'data'
     ]
     
     # Extensions/Files to exclude
@@ -56,5 +58,5 @@ def zip_website(output_filename):
                             zipf.write(file_path, arcname=arcname)
 
 if __name__ == "__main__":
-    zip_website('deploy_v25.zip')
-    print("Zip created: deploy_v25.zip")
+    zip_website('deploy_v26.zip')
+    print("Zip created: deploy_v26.zip")
